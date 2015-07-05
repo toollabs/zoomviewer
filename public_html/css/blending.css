@@ -1,0 +1,89 @@
+body{
+    margin: 0px;
+    font-family: verdana, sans-serif;
+    padding: 0px;
+}
+h1{
+    text-align: center;
+    font-size: 13pt;
+    margin: 1em;
+}
+h2, h3{
+    text-align: center;
+    font-size: 12pt;
+    margin-top: 0.3em;
+}
+    h3{
+      margin-top: -1em;
+      margin-bottom: 1.5em;
+      font-size: 7pt;
+    }
+    select{
+      position: relative;
+      background: black;
+      color: #bbb;
+      border: 1px solid #bbbbbb;
+      width: 90%;
+      margin: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 8pt;
+    }
+    option{
+      background: transparent;
+      color:#bbb;
+      border: 1px solid #bbbbbb;
+      width: 100%;
+    }
+    fieldset{
+      border: thin solid grey;
+      padding: 10px;
+      margin: 5px;
+      text-align: left;
+      width: 80%;
+    }
+    fieldset legend { font-size: 120% }
+    div#controls{
+      width: 24.5%;
+      height: 99%;
+      position: absolute;
+      background: black;
+      color: #bbbbbb;
+      border: 2px inset grey;
+      font-size: 75%;
+    }
+    div#controls > div{
+      text-align: center;
+      border: 1px solid grey;
+      margin: 5px;
+      background: #101010;
+      font-size: 8pt;
+      -moz-border-radius: 2%;
+    }
+    div#spectra{
+      height: 40%;;
+    }
+    div#controls div span{ 
+      position: absolute;
+      font-size: 6pt;
+    }
+    div#area{
+      text-align: left;
+      background: transparent;
+      border: 1px solid #bbbbbb;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    div#area div#knob{
+      color: white;
+      height: 12px;
+      width: 8px;
+      background: white;
+      cursor: move;
+      margin: 0px;
+    }
+img#loading{
+  position: absolute;
+  visibility: hidden;
+}
