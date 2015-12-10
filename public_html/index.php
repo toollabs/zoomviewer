@@ -1,7 +1,6 @@
 <?php
 // http://commons.wikimedia.org/w/thumb.php?w=48&f=Harding%20Icefield%201.jpg
 
-//$f = $_GET['f'];
 if (array_key_exists('f', $_GET))
   $f = str_replace(' ', '_', ucfirst($_GET['f']));
 else
@@ -13,13 +12,11 @@ if( $f == "" )
   exit;
 }
 
+// download and vips scaling stages
 if (array_key_exists('stage', $_GET))
   $stage = intval($_GET['stage']);
 else
   $stage = 0;
-
-// allow short tags
-// ini_set
 
 // compute cache file names
 $m = 'cache/' . md5($f);
@@ -50,10 +47,8 @@ if( !is_readable($c) )
   // url of the image (may need escaping!)
   $url = "http://commons.wikimedia.org/wiki/Special:Filepath/" . urlencode($f);
 
-echo $url;
   // read first couple of byte to verify file type
   $image = file_get_contents( $url, false, null, 0, 100 );
-
 
   // need to detect JFIF magic
   if( substr($image,6,4) == 'JFIF' || substr($image,6,4) == 'Exif' || substr($image,6,9) == 'Photoshop')
@@ -110,14 +105,12 @@ if( !is_readable($p) )
   exit;
 }
 
-$credit = $f;//"working on better credit line :-)";
+//"working on better credit line :-)";
+$credit = $f;
 
+// output the requested viewer flash/JS
 if(array_key_exists('flash', $_GET) && $_GET['flash'] == "no")
-{
   include( 'template_javascript.inc' );
-}
 else
-{
   include( 'template_flash.inc' );
-}
 ?>
