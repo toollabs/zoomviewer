@@ -1,3 +1,0 @@
- ./configure --with-fcgi-incl=/data/project/zoomviewer/iipsrv-0.9.9/fcgi/include --with-fcgi-lib=/data/project/zoomviewer/iipsrv-0.9.9/fcgi/libfcgi
-
-/bin/bash ../libtool --tag=CXX   --mode=link g++  -g -O2   -o iipsrv.fcgi IIPImage.o TPTImage.o JPEGCompressor.o TileManager.o IIPResponse.o View.o ColourTransforms.o Task.o OBJ.o FIF.o JTL.o TIL.o ICC.o CVT.o Zoomify.o DeepZoom.o SPECTRA.o Watermark.o Main.o   -lnsl -lz -lm   -ljpeg -ltiff -lz -lm -L/data/project/zoomviewer/iipsrv-0.9.9/fcgi/libfcgi/ -lfcgi
