@@ -76,5 +76,6 @@ if( !is_readable($p) )
 }
 
 // redirect to iipsrv with the cache file
+header('Access-Control-Allow-Origin: *');
 header('Location: https://tools.wmflabs.org/zoomviewer/iipsrv.fcgi/?iiif=' . $p . '/info.json');
 ?>
