@@ -17,7 +17,7 @@ $p = $m . '.tif';
 $t = $m . '.part.tif';
 
 // extract command
-$c = substr($iiif, $pos);
+$iiifcmd = substr($iiif, $pos);
 
 // first make sure we have the original image
 if (!is_readable($c))
@@ -41,6 +41,8 @@ if (!is_readable($c))
     if (!$in_handle)
     {
       // error: Cannot download image from commons
+      http_response_code(404);
+      echo "Cannot download image from commons.";
       exit;
     }
 
@@ -58,6 +60,8 @@ if (!is_readable($c))
   else
   {
     // error: Cannot download image from commons or wrong format
+    http_response_code(404);
+    echo "Cannot download image from commons or wrong format.";
     exit;
   }
 }
@@ -74,12 +78,13 @@ if (!is_readable($p))
   }
   else
   {
-    // encountered cace condition. The script should wait for $t to vanish
+    // encountered race condition. The script should wait for $t to vanish
+    echo "Encountered race condition. The script should wait for $t to vanish.";
     exit;
   }
 }
 
 // redirect to iipsrv with the cache file
 header('Access-Control-Allow-Origin: *');
-header('Location: https://tools.wmflabs.org/zoomviewer/iipsrv.fcgi/?iiif=' . $p . $c);
+header('Location: https://tools.wmflabs.org/zoomviewer/iipsrv.fcgi/?iiif=' . $p . $iiifcmd);
 ?>
