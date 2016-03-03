@@ -3,18 +3,18 @@
   <head>
     <script type="text/javascript">
       var pf, c;
-      var stage_text = [ 'stil working...', 'Obtaining image data from commons...', 'Processing image...', 'Not a valid JPG file!' ];
+      var stage_text = ['stil working...', 'Obtaining image data from commons...', 'Processing image...', 'Not a valid JPG file!'];
 
-      function done( stage )
+      function done(stage)
       {
         // finished copying now preprocess!
-        if( stage == 1 )
+        if (stage == 1)
         {
           run(2);
         }
 
         // all done, reload to show the flash viewer.
-        else if( stage == 2 )
+        else if (stage == 2)
         {
           window.location.reload();
         }
@@ -23,14 +23,14 @@
         else if( stage == 0 )
         {
           c.innerHTML= stage_text[stage];
-          setTimeout ( "window.location.reload()", 10000 );
+          setTimeout("window.location.reload()", 10000);
         }
 
         else
-          c.innerHTML= stage_text[stage];
+          c.innerHTML = stage_text[stage];
       }
 
-      function run( stage )
+      function run(stage)
       {
         pf = document.getElementById('processingframe');
         pf.src = '<?= $req ?>&stage=' + stage;
