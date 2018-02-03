@@ -29,8 +29,8 @@
 			document.getElementById('nojs').style.display = 'none';
 
 			var server = "iipsrv.fcgi";
-			var image = "<?= $p ?>";
-			var credit = "<?= $credit ?>";
+			var image = "<?= htmlspecialchars($p) ?>";
+			var credit = "<?= htmlspecialchars($credit) ?>";
 			var flashvars = {
 				server: server,
 				image: image,

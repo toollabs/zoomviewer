@@ -24,10 +24,10 @@
     // The *full* image path on the server. This path does *not* need to be in the web
     // server root directory. On Windows, use Unix style forward slash paths without
     // the "c:" prefix
-    var images = '<?= $p ?>';
+    var images = '<?= htmlspecialchars($p) ?>';
 
     // Copyright or information message
-    var credit = '<?= $credit ?>';
+    var credit = '<?= htmlspecialchars($credit) ?>';
 
     // Create our viewer object - note: must assign this to the 'iip' variable.
     // See documentation for more details of options
