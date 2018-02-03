@@ -1,8 +1,8 @@
 #!/bin/bash
-cd `dirname $0`/cache
+cd `dirname $0`/cache_test
 
-MD5=$2
-FILE=$3
+MD5=$1
+FILE=$2
 
 # fetch the full res file
 TMP=${MD5}.jpg
@@ -12,5 +12,6 @@ wget -O "$TMP" "https://upload.wikimedia.org/wikipedia/commons/${MD51}/${MD52}/$
 
 
 # generate multiresolution pyramid
-MULTI=${DIR}${MD5}
+TIFF=${MD5}.tif
+export TMPDIR=/data/project/zoomviewer/var/tmp
 /usr/bin/vips im_vips2tiff "$TMP" "$TIFF":jpeg:75,tile:256x256,pyramid
