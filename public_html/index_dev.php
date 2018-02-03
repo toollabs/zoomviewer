@@ -56,7 +56,7 @@ else
 // first make sure we have the original image
 if ($fetch_file)
 {
-  $command = 'jsub -mem 2048m -l release=trusty -N ' . escapeshellarg('zoom_' . $md5) . ' -once ./multires.sh ' . escapeshellarg($md5) . ' ' . escapeshellarg(urlencode($f));
+  $cmd = 'jsub -mem 2048m -l release=trusty -N ' . escapeshellarg('zoom_' . $md5) . ' -once ./multires.sh ' . escapeshellarg($md5) . ' ' . escapeshellarg(urlencode($f));
   shell_exec( $cmd.'  2>&1');
 }
 
