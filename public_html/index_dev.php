@@ -20,12 +20,9 @@ else
 
 // compute cache file names
 $md5 = md5($f);
-$m = 'cache_test/' . $md5;
+$m = 'cache/' . $md5;
 $c = $m . '.jpg';
 $p = $m . '.tif';
-$output = '';
-
-$req = 'index.php?f=' . urlencode($f);
 
 // better not cache this!
 header('Cache-control: no-cache,no-store,must-revalidate');
@@ -61,23 +58,25 @@ if ($fetch_file)
 {
   $command = 'jsub -mem 2048m -l release=trusty -N ' . escapeshellarg('zoom_' . $md5) . ' -once ./multires.sh ' . escapeshellarg($md5) . ' ' . escapeshellarg(urlencode($f));
   shell_exec( $cmd.'  2>&1');
-  $output = 'Processing Image...';
 }
 
 // now make sure we have a pyramidal tiled tif of it
 if (!is_readable($p))
 {
-  include('template_done.inc');
+  include('template_pending.inc');
   exit;
 }
-
-//"working on better credit line :-)";
-$credit = $f;
-
-// output the requested viewer flash/JS
-if(array_key_exists('flash', $_GET) && $_GET['flash'] == "no")
-  include( 'template_javascript.inc' );
 else
-  include( 'template_flash.inc' );
+{
+  //"working on better credit line :-)";
+  $credit = $f;
+
+  // output the requested viewer flash/JS
+  if(array_key_exists('flash', $_GET) && $_GET['flash'] == "no")
+    include( 'template_javascript.inc' );
+  else
+    include( 'template_flash.inc' );
+}
+
 ?>
 
