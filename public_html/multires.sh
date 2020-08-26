@@ -8,8 +8,7 @@ FILE=$2
 TMP=${MD5}.jpg
 MD51=`echo $MD5 | cut -c1`
 MD52=`echo $MD5 | cut -c1-2`
-wget -O "$TMP" "https://upload.wikimedia.org/wikipedia/commons/${MD51}/${MD52}/${FILE}"
-
+wget -O "$TMP" "https://upload.wikimedia.org/wikipedia/commons/${MD51}/${MD52}/${FILE}" > /dev/null 2>&1
 
 # generate multiresolution pyramid
 TIFF=${MD5}.tif

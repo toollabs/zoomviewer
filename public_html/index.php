@@ -36,7 +36,7 @@ if (is_readable($c))
   // connect to database
   $ts_pw = posix_getpwuid(posix_getuid());
   $ts_mycnf = parse_ini_file($ts_pw['dir'] . "/replica.my.cnf");
-  $db = mysqli_connect("p:commonswiki.labsdb", $ts_mycnf['user'], $ts_mycnf['password'], "commonswiki_p");
+  $db = mysqli_connect("commonswiki.web.db.svc.eqiad", $ts_mycnf['user'], $ts_mycnf['password'], "commonswiki_p");
   unset($ts_mycnf, $ts_pw);
 
   // get last upload date from database
@@ -56,7 +56,7 @@ else
 // first make sure we have the original image
 if ($fetch_file)
 {
-  $cmd = 'jsub -mem 2048m -l release=trusty -N ' . escapeshellarg('zoom_' . $md5) . ' -once ./multires.sh ' . escapeshellarg($md5) . ' ' . escapeshellarg(urlencode($f));
+  $cmd = 'jsub -mem 2048m -N ' . escapeshellarg('zoom_' . $md5) . ' -once -o /dev/null -e /dev/null ./multires.sh ' . escapeshellarg($md5) . ' ' . escapeshellarg(urlencode($f));
   shell_exec( $cmd.'  2>&1');
 }
 
