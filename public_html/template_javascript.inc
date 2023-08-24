@@ -19,7 +19,7 @@
   <script type="text/javascript">
 
     // The iipsrv server path (/fcgi-bin/iipsrv.fcgi by default)
-    var server = 'iipsrv.fcgi';
+    var server = '/fcgi-bin/iipsrv.fcgi';
 
     // The *full* image path on the server. This path does *not* need to be in the web
     // server root directory. On Windows, use Unix style forward slash paths without

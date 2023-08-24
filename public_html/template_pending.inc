@@ -18,6 +18,7 @@
     <tr><td>
     <div align="center">
     <span id="message">Processing image...</span><br>
+    <!--<span id="message">Image processing is down for Toolforge file system maintenance until 4/3/23</span><br>-->
     <img src="ajax-loader.gif" border=0>
     </div>
     </td></tr>

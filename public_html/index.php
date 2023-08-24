@@ -36,7 +36,7 @@ if (is_readable($c))
   // connect to database
   $ts_pw = posix_getpwuid(posix_getuid());
   $ts_mycnf = parse_ini_file($ts_pw['dir'] . "/replica.my.cnf");
-  $db = mysqli_connect("commonswiki.web.db.svc.eqiad", $ts_mycnf['user'], $ts_mycnf['password'], "commonswiki_p");
+  $db = mysqli_connect("commonswiki.analytics.db.svc.eqiad.wmflabs", $ts_mycnf['user'], $ts_mycnf['password'], "commonswiki_p");
   unset($ts_mycnf, $ts_pw);
 
   // get last upload date from database
@@ -52,6 +52,9 @@ if (is_readable($c))
 }
 else
   $fetch_file = true;
+
+// TEMPORARILY DISABLED
+//$fetch_file = false;
 
 // first make sure we have the original image
 if ($fetch_file)
